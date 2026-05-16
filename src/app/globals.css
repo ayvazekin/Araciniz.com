@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --gold: #B8860B;
+  --gold-light: #DAA520;
+  --gold-dark: #8B6914;
+  --gold-glow: rgba(184, 134, 11, 0.6);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #B8860B #000000;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #B8860B;
+  border-radius: 3px;
+}
+
+body {
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.font-serif {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Premium Gold Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #DAA520 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effects */
+.glow-gold {
+  box-shadow: 0 0 30px rgba(184, 134, 11, 0.4), 0 0 60px rgba(184, 134, 11, 0.15);
+}
+
+.glow-gold-intense {
+  box-shadow: 0 0 40px rgba(184, 134, 11, 0.6), 0 0 80px rgba(184, 134, 11, 0.25);
+}
+
+/* Border Glow */
+.border-glow {
+  border: 1px solid rgba(184, 134, 11, 0.25);
+}
+
+.border-glow-focus:focus {
+  border-color: #B8860B;
+  box-shadow: 0 0 30px rgba(184, 134, 11, 0.4);
+  outline: none;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Shimmer Animation - White Glass Reflection Effect */
+.shimmer-left {
+  color: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.6) 0%,
+    rgba(255,255,255,0.6) 40%,
+    rgba(255,255,255,1) 50%,
+    rgba(255,255,255,0.6) 60%,
+    rgba(255,255,255,0.6) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-left 3s ease-in-out infinite;
+}
+
+.shimmer-right {
+  color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(
+    -90deg,
+    rgba(255,255,255,0.4) 0%,
+    rgba(255,255,255,0.4) 40%,
+    rgba(255,255,255,0.9) 50%,
+    rgba(255,255,255,0.4) 60%,
+    rgba(255,255,255,0.4) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-right 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes shimmer-left {
+  0% { background-position: 150% 0; }
+  100% { background-position: -150% 0; }
+}
+
+@keyframes shimmer-right {
+  0% { background-position: -150% 0; }
+  100% { background-position: 150% 0; }
+}
+
+/* Selection */
+::selection {
+  background: rgba(184, 134, 11, 0.4);
+  color: #ffffff;
+}
+
+/* Animations */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Hide scrollbar for thumbnails */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Premium Shimmer Animation for Buttons */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Skeleton Shimmer Animation */
+.animate-shimmer {
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
